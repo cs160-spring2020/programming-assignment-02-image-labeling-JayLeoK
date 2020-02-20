@@ -11,6 +11,10 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,14 +25,19 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+        Spinner colors = (Spinner) findViewById(R.id.colors);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.color_options, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        colors.setAdapter(adapter);
+
+        ImageButton photoButton = (ImageButton) findViewById(R.id.photoButton);
+        photoButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+
             }
         });
+
     }
 
     @Override
