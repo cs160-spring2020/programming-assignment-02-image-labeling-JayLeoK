@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Image Labeler</string>
     <string name="action_settings">Settings</string>
+    <string name="photo_button">Take Photo</string>
+    <string name="label_text">Label ANY Image!</string>
     <string-array name="color_options">
         <item>Red</item>
         <item>Blue</item>
