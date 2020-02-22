@@ -2,6 +2,7 @@ package com.example.imagelabeler;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.provider.MediaStore;
@@ -14,6 +15,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 public class photoActivity extends AppCompatActivity{
+    ImageView imageView;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
@@ -22,7 +24,7 @@ public class photoActivity extends AppCompatActivity{
         Intent intent = getIntent();
         String color = intent.getStringExtra("colorSelected");
 
-        ImageView imageView = (ImageView) findViewById(R.id.image_view);
+        imageView = findViewById(R.id.image_view);
         if (ContextCompat.checkSelfPermission(photoActivity.this,
                 Manifest.permission.CAMERA)!= photoActivity.this.getPackageManager().PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(photoActivity.this,new String[] {Manifest.permission.CAMERA}, 100);
@@ -30,12 +32,15 @@ public class photoActivity extends AppCompatActivity{
         Intent captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(captureIntent,100);
 
+
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode==100){
-            Toast.makeText(this, "Bitmap stuff", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Bitmap stuff", Toast.LENGTH_SHORT).show();
+            Bitmap captureImage = (Bitmap) data.getExtras().get("data");
+            imageView.setImageBitmap(captureImage);
         }
     }
 }
