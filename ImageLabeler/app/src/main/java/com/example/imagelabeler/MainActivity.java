@@ -120,24 +120,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void takePicture() {
-        Intent captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (captureIntent.resolveActivity(getPackageManager()) != null) {
-            Date date = new Date();
-            DateFormat df = new SimpleDateFormat("-mm-ss");
-
-            String newPicFile = df.format(date) + ".jpg";
-            String outPath = "/sdcard/" + newPicFile;
-            imageFile = new File(outPath);
-
-            fileName = imageFile.toString();
-            Uri outuri = FileProvider.getUriForFile(MainActivity.this,
-                    "com.example.imagelabeler.provider", imageFile);
-            captureIntent.putExtra(MediaStore.EXTRA_OUTPUT, outuri);
-            startActivityForResult(captureIntent, 2);
-        }
-    }
-
     private File createImageFile() throws IOException {
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
