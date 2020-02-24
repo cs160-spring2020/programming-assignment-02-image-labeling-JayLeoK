@@ -8,17 +8,6 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:layout_constraintBottom_toBottomOf="@+id/colors"
-        app:layout_constraintEnd_toStartOf="@+id/colors"
-        app:layout_constraintTop_toTopOf="@+id/colors"
-        tools:text="@string/label_text" />
-
     <Spinner
         android:id="@+id/colors"
         android:layout_width="150dp"
@@ -28,21 +17,36 @@
         app:layout_constraintEnd_toStartOf="@+id/photoButton"
         app:layout_constraintTop_toTopOf="@+id/photoButton" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="16dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textIsSelectable="false"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/colors"
+        app:layout_constraintEnd_toStartOf="@+id/colors"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/colors"
+        app:layout_constraintVertical_bias="0.4"
+        tools:text="@string/label_text" />
+
     <Button
         android:id="@+id/photoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/photo_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="352dp"
-        android:layout_height="572dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="431dp"
+        android:layout_height="625dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
